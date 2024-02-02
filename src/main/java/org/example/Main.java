@@ -56,7 +56,13 @@ public class Main {
                 6 - Realizar depósito em uma conta
                 7 - Sair
                 """);
-        return Integer.parseInt(sc.nextLine());
+
+        try{
+            return Integer.parseInt(sc.nextLine());
+        } catch (NumberFormatException e){
+            System.out.println("Entrada inválida...");
+            return 7;
+        }
     }
 
 
