@@ -3,15 +3,10 @@ package org.example.entities.cliente;
 import java.util.Objects;
 
 public class Cliente {
-
-    private String nome;
     private String cpf;
-    private String email;
 
     public Cliente(ClienteDTO clienteDTO){
-        this.nome = clienteDTO.nome();
         this.cpf = clienteDTO.cpf();
-        this.email = clienteDTO.email();
     }
 
     @Override
@@ -30,22 +25,12 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
-                "nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
-                ", email='" + email + '\'' +
                 '}';
-    }
-
-    public String getNome() {
-        return nome;
     }
 
     public String getCpf() {
         return cpf;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
 }

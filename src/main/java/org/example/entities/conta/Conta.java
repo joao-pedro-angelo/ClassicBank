@@ -1,5 +1,7 @@
 package org.example.entities.conta;
 
+import org.example.entities.cliente.Cliente;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -7,11 +9,11 @@ public class Conta {
 
     private Integer numeroConta;
     private BigDecimal saldo;
-    private String cpfTitular;
+    private Cliente cliente;
 
-    public Conta(ContaDTO contaDTO){
+    public Conta(ContaDTO contaDTO, Cliente cliente){
         this.numeroConta = contaDTO.numeroConta();
-        this.cpfTitular = contaDTO.cpfTitular();
+        this.cliente = cliente;
         this.saldo = BigDecimal.ZERO;
     }
 
@@ -45,7 +47,7 @@ public class Conta {
         return "Conta{" +
                 "numero='" + numeroConta + '\'' +
                 ", saldo=" + saldo +
-                ", titular=" + cpfTitular +
+                ", titular=" + cliente +
                 '}';
     }
 
@@ -57,7 +59,7 @@ public class Conta {
         return saldo;
     }
 
-    public String getTitular() {
-        return cpfTitular;
+    public Cliente getTitular() {
+        return cliente;
     }
 }

@@ -1,4 +1,4 @@
 package org.example.entities.cliente;
 
-public record ClienteDTO(String nome, String cpf, String email) {
+public record ClienteDTO(String cpf) {
 }

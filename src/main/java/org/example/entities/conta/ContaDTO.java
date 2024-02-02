@@ -1,4 +1,6 @@
 package org.example.entities.conta;
 
-public record ContaDTO(Integer numeroConta, String cpfTitular) {
+import org.example.entities.cliente.Cliente;
+
+public record ContaDTO(Integer numeroConta, String cliente) {
 }

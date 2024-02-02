@@ -1,6 +1,7 @@
 package org.example.services;
 
 import org.example.entities.cliente.Cliente;
+import org.example.entities.cliente.ClienteDTO;
 import org.example.entities.conta.Conta;
 import org.example.entities.conta.ContaDTO;
 import org.example.exception.RegraDeNegocioException;
@@ -27,7 +28,8 @@ public class ContaService {
     }
 
     public void abrir(ContaDTO contaDTO){
-        Conta conta = new Conta(contaDTO);
+        Cliente cliente = new Cliente(new ClienteDTO(contaDTO.cliente()));
+        Conta conta = new Conta(contaDTO, cliente);
         if (contas.contains(conta)){
             throw new RegraDeNegocioException("Já existe conta cadastrada com esse número.");
         } contas.add(conta);
