@@ -1,4 +1,4 @@
-# Projeto Java com Integração de Banco de Dados
+# ClassicBank: CRUD Java - JDBC - MySQL Server
 
 > Integração de sistemas Java com banco de dados utilizando a API JDBC.
 
