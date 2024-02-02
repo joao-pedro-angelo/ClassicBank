@@ -38,8 +38,6 @@ public class Main {
                 }
             } catch (RegraDeNegocioException e){
                 System.out.println("Erro: " + e.getMessage());
-                System.out.println("Pressione qualquer tecla e dê enter para ir ao menu");
-                sc.next();
             }
             opcao = exibirMenu();
         }
@@ -49,7 +47,7 @@ public class Main {
 
     private static int exibirMenu(){
         System.out.println("""
-                BYTEBANK - ESCOLHA UMA OPÇÃO:
+                CLASSIC BANK - ESCOLHA UMA OPÇÃO:
                 1 - Listar contas abertas
                 2 - Abertura de conta
                 3 - Encerramento de conta
@@ -65,8 +63,9 @@ public class Main {
     private static void listarContas(){
         System.out.println("Contas cadastradas: ");
         System.out.println(contaService.listarContas());
+        System.out.println("Tecle enter para voltar ao menu principal.");
 
-        sc.next();
+        sc.nextLine();
     }
 
 
@@ -80,8 +79,9 @@ public class Main {
         contaService.abrir(new ContaDTO(numeroConta, cpfTitular));
 
         System.out.println("Conta aberta com sucesso!");
-        System.out.println("Pressione qualquer tecla e dê enter para voltar ao menu principal.");
-        sc.next();
+        System.out.println("Tecle enter para voltar ao menu principal.");
+
+        sc.nextLine();
     }
 
 
@@ -92,8 +92,9 @@ public class Main {
         contaService.encerrar(numeroDaConta);
 
         System.out.println("Conta encerrada com sucesso!");
-        System.out.println("Pressione qualquer tecla e de ENTER para voltar ao menu principal");
-        sc.next();
+        System.out.println("Tecle enter para voltar ao menu principal");
+
+        sc.nextLine();
     }
 
 
@@ -103,8 +104,9 @@ public class Main {
         BigDecimal saldo = contaService.consultarSaldo(numeroDaConta);
         System.out.println("Saldo da conta: " +saldo);
 
-        System.out.println("Pressione qualquer tecla e de ENTER para voltar ao menu principal");
-        sc.next();
+        System.out.println("Tecle enter para voltar ao menu principal");
+
+        sc.nextLine();
     }
 
 
@@ -118,8 +120,9 @@ public class Main {
         contaService.realizarSaque(numeroDaConta, valor);
 
         System.out.println("Saque realizado com sucesso!");
-        System.out.println("Pressione qualquer tecla e de ENTER para voltar ao menu principal");
-        sc.next();
+        System.out.println("Tecle enter para voltar ao menu principal");
+
+        sc.nextLine();
     }
 
 
@@ -133,8 +136,9 @@ public class Main {
         contaService.realizarDeposito(numeroDaConta, valor);
 
         System.out.println("Depósito realizado com sucesso!");
-        System.out.println("Pressione qualquer tecla e de ENTER para voltar ao menu principal");
-        sc.next();
+        System.out.println("Tecle enter para voltar ao menu principal");
+
+        sc.nextLine();
     }
 
 
