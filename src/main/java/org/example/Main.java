@@ -137,7 +137,7 @@ public class Main {
         Integer numeroDaConta = Integer.parseInt(sc.nextLine());
 
         System.out.println("Digite o valor do depósito:");
-        var valor = sc.nextBigDecimal();
+        BigDecimal valor = sc.nextBigDecimal();
 
         contaService.realizarDeposito(numeroDaConta, valor);
 
