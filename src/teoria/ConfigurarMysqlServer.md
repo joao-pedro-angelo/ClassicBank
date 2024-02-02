@@ -74,4 +74,15 @@ CREATE TABLE `conta` (
 ```
 
 
+---
+## Conexão JDBC
+
+A string de conexão com a base de dados, deve ter o seguinte formato:
+
+```txt
+"jdbc:mysql://localhost:3306/<nomeDaTabela>?user=<nomeDoSeuUsuário>&password=<suaSenhaDoBancoDeDados>”
+```
+
+
+---
 Feito isso, o SGBD e o banco de dados (tabela) estarão configurados!
