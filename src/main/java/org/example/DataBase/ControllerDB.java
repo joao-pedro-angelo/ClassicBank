@@ -27,6 +27,7 @@ public class ControllerDB {
             preparedStatement.setString(3, cpfCliente);
 
             preparedStatement.execute();
+            preparedStatement.close();
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
