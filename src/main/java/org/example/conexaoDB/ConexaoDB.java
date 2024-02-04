@@ -12,7 +12,6 @@ public class ConexaoDB {
         Scanner sc = new Scanner(System.in);
 
         try{
-
             System.out.println("Insira a senha do banco de dados: ");
             String password = sc.nextLine();
 
