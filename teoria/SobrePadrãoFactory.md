@@ -2,6 +2,10 @@
 
 > Os padrões factory têm como principal objetivo nos auxiliar a reduzir acoplamento em nosso software, ou seja, manter dependências flexíveis. Dessa forma as dependências deixam de ser explícitas.
 
+Para evitar a duplicação de código, usamos a classe ConnectionFactory. Fazer isso é algo tão comum em projetos de programação que se tornou um padrão de projeto, o Factory. Podemos definir o padrão Factory pensando justamente na sua tradução: significa “Fábrica”. Dessa forma, criamos uma classe que terá um método que retorna um objeto.
+
+Assim, ao invés de usar o new a todo momento, fazemos isso apenas uma vez, quando estamos criando o método na classe Factory. Depois, para criar os objetos, apenas chamamos esse método de criação.
+
 
 ---
 ## Contexto

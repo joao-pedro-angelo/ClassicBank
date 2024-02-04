@@ -1,4 +1,4 @@
-package org.example.conexaoDB;
+package org.example.DataBase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
