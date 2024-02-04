@@ -2,7 +2,7 @@
 
 > Os padrões factory têm como principal objetivo nos auxiliar a reduzir acoplamento em nosso software, ou seja, manter dependências flexíveis. Dessa forma as dependências deixam de ser explícitas.
 
-Para evitar a duplicação de código, usamos a classe ConnectionFactory. Fazer isso é algo tão comum em projetos de programação que se tornou um padrão de projeto, o Factory. Podemos definir o padrão Factory pensando justamente na sua tradução: significa “Fábrica”. Dessa forma, criamos uma classe que terá um método que retorna um objeto.
+Podemos definir o padrão Factory pensando justamente na sua tradução: significa “Fábrica”. Dessa forma, criamos uma classe que terá um método que retorna um objeto.
 
 Assim, ao invés de usar o new a todo momento, fazemos isso apenas uma vez, quando estamos criando o método na classe Factory. Depois, para criar os objetos, apenas chamamos esse método de criação.
 
@@ -46,13 +46,8 @@ public static void main(String... args) {
 Com o padrão, a ideia é que a conexão não esteja em um método main. 
 Mas sim em um método que possa retornar a conexão sempre que for invocado.
 
+
 ### Refatorando
-
-1º Passo:
-- Modifico o nome da classe para ConnectionFactory
-
-2º Passo:
-- Crio o método abaixo
 
 ```java
 import java.sql.Connection;
@@ -67,9 +62,10 @@ public Connection recuperaConexao(String password){
 }
 ```
 
-3º Passo:
-- Apago o método main da Connection
-
-
 ---
 
+
+### Conclusão
+
+Agora não é preciso diversas instâncias da classe de conexão. Basta uma instância e a conexão pode ser recuperada
+por meio do método **recuperaConexao()**, que pode ter ou não parâmetros.
