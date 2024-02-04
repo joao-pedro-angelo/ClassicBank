@@ -1,8 +1,6 @@
 package org.example.services;
 
 import org.example.DataBase.ControllerDB;
-import org.example.entities.cliente.Cliente;
-import org.example.entities.cliente.ClienteDTO;
 import org.example.entities.conta.Conta;
 import org.example.entities.conta.ContaDTO;
 import org.example.exception.RegraDeNegocioException;
