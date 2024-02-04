@@ -1,6 +1,6 @@
 # Factory Pattern
 
-> Sobre
+> Os padrões factory têm como principal objetivo nos auxiliar a reduzir acoplamento em nosso software, ou seja, manter dependências flexíveis. Dessa forma as dependências deixam de ser explícitas.
 
 
 ---
