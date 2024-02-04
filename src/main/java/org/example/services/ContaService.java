@@ -1,5 +1,6 @@
 package org.example.services;
 
+import org.example.conexaoDB.FactoryConexaoDB;
 import org.example.entities.cliente.Cliente;
 import org.example.entities.cliente.ClienteDTO;
 import org.example.entities.conta.Conta;
@@ -7,13 +8,22 @@ import org.example.entities.conta.ContaDTO;
 import org.example.exception.RegraDeNegocioException;
 
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 public class ContaService {
 
-    private Set<Conta> contas = new HashSet<>();
+    private Set<Conta> contas;
+    private FactoryConexaoDB conn;
+
+    public ContaService(){
+        this.conn = new FactoryConexaoDB();
+        this.contas =  new HashSet<>();
+    }
 
     public String listarContas(){
         StringBuilder result = new StringBuilder();
@@ -33,6 +43,23 @@ public class ContaService {
         if (contas.contains(conta)){
             throw new RegraDeNegocioException("Já existe conta cadastrada com esse número.");
         } contas.add(conta);
+
+        String sqlQuery = "INSERT INTO conta (numeroConta, saldo, cpf) " +
+                "VALUES (?, ?, ?)";
+
+        Connection connection = this.conn.recuperaConexao();
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+
+            preparedStatement.setInt(1, conta.getNumero());
+            preparedStatement.setBigDecimal(2, BigDecimal.ZERO);
+            preparedStatement.setString(3, cliente.getCpf());
+
+            preparedStatement.execute();
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
     }
 
     public void realizarSaque(Integer numeroDaConta, BigDecimal valor){

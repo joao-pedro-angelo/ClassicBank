@@ -6,8 +6,10 @@ import java.sql.SQLException;
 
 public class FactoryConexaoDB {
 
-    public Connection recuperaConexao(String password){
+    public Connection recuperaConexao(){
         try{
+            String password = "senha-de-root";
+
             return DriverManager
                     .getConnection("jdbc:mysql://localhost:3306/byte_bank?user=root&password=" + password);
         } catch (SQLException e){
