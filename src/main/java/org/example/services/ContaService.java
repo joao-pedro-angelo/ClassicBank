@@ -35,13 +35,7 @@ public class ContaService {
     }
 
     public void abrir(ContaDTO contaDTO){
-        Cliente cliente = new Cliente(new ClienteDTO(contaDTO.cliente()));
-        Conta conta = new Conta(contaDTO, cliente);
-        if (contas.contains(conta)){
-            throw new RegraDeNegocioException("Já existe conta cadastrada com esse número.");
-        } contas.add(conta);
-
-        this.controllerDB.abrirConta(conta.getNumero(), cliente.getCpf());
+        this.controllerDB.abrirConta(contaDTO.numeroConta(), contaDTO.cliente());
     }
 
     public void realizarSaque(Integer numeroDaConta, BigDecimal valor){
