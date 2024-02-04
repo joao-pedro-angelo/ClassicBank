@@ -1,6 +1,6 @@
 package org.example.services;
 
-import org.example.DataBase.FactoryControllerDB;
+import org.example.DataBase.ControllerDB;
 import org.example.entities.cliente.Cliente;
 import org.example.entities.cliente.ClienteDTO;
 import org.example.entities.conta.Conta;
@@ -15,11 +15,11 @@ import java.util.Set;
 public class ContaService {
 
     private Set<Conta> contas;
-    private FactoryControllerDB controllerDB;
+    private ControllerDB controllerDB;
 
     public ContaService(){
         this.contas =  new HashSet<>();
-        this.controllerDB = new FactoryControllerDB();
+        this.controllerDB = new ControllerDB();
     }
 
     public String listarContas(){

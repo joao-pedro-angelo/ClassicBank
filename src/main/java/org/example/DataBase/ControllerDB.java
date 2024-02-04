@@ -5,12 +5,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class FactoryControllerDB {
+public class ControllerDB {
 
-    private FactoryConexaoDB conexaoDB;
+    private ConexaoDB conexaoDB;
 
-    public FactoryControllerDB(){
-        this.conexaoDB = new FactoryConexaoDB();
+    public ControllerDB(){
+        this.conexaoDB = new ConexaoDB();
     }
 
     public void abrirConta(Integer numeroConta, String cpfCliente){
