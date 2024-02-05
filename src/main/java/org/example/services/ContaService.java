@@ -47,6 +47,8 @@ public class ContaService {
 
                 this.contas.add(conta);
             }
+
+            resultSet.close();
         } catch (SQLException e){
             throw new RuntimeException(e);
         }

@@ -42,11 +42,8 @@ public class ControllerDB {
         Connection connection = this.conexaoDB.recuperaConexao();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            preparedStatement.close();
-            connection.close();
 
-            return resultSet;
+            return preparedStatement.executeQuery();
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
