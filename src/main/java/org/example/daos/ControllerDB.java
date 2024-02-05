@@ -84,7 +84,7 @@ public class ControllerDB {
                 String cpf = resultSet.getString(3);
 
                 Cliente cliente = new Cliente(cpf);
-                conta = new Conta(numeroConta, saldo, cliente);
+                conta = new Conta(numeroRecuperado, saldo, cliente);
             }
             this.encerraConexoes(connection, resultSet, preparedStatement);
         } catch (SQLException e){

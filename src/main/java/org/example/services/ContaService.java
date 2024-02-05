@@ -3,6 +3,7 @@ package org.example.services;
 import org.example.daos.ControllerDB;
 import org.example.entities.Cliente;
 import org.example.entities.Conta;
+import org.example.exception.RegraDeNegocioException;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -20,6 +21,7 @@ public class ContaService {
 
     public String listarContas(){
         this.contas = this.controllerDB.listarTodasContas();
+        if (this.contas == null) throw new RegraDeNegocioException("Não há contas cadastradas");
         StringBuilder result = new StringBuilder();
 
         for (Conta conta : this.contas) result.append(conta.toString());
@@ -27,16 +29,20 @@ public class ContaService {
     }
 
     public Conta listaContaPorNumero(Integer numeroConta){
-        return this.controllerDB.listaContaPorNumero(numeroConta);
+        Conta conta = this.controllerDB.listaContaPorNumero(numeroConta);
+        if (conta == null) throw new RegraDeNegocioException("Não há conta com este número");
+        return conta;
     }
 
 
     public void abrir(Integer numeroConta, String cpfCliente){
+        if (numeroConta <= 0 || cpfCliente.isBlank()) throw new RegraDeNegocioException("Valores inválidos!");
         this.controllerDB.abrirConta(numeroConta, new Cliente(cpfCliente));
     }
 
     public BigDecimal consultarSaldo(Integer numeroConta){
         Conta conta = listaContaPorNumero(numeroConta);
+        if (conta == null) throw new RegraDeNegocioException("Não há conta com este número");
         return conta.getSaldo();
     }
 
