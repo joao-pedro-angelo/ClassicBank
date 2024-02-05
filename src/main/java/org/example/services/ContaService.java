@@ -1,14 +1,11 @@
 package org.example.services;
 
 import org.example.daos.ControllerDB;
-import org.example.entities.cliente.Cliente;
 import org.example.entities.conta.Conta;
 import org.example.entities.conta.ContaDTO;
 import org.example.exception.RegraDeNegocioException;
 
 import java.math.BigDecimal;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -24,34 +21,11 @@ public class ContaService {
     }
 
     public String listarContas(){
-        this.recuperaContas();
+        this.contas = this.controllerDB.listarTodasContas();
         StringBuilder result = new StringBuilder();
 
         for (Conta conta : this.contas) result.append(conta.toString());
         return result.toString();
-    }
-
-    private void recuperaContas(){
-        try{
-            ResultSet resultSet = this.controllerDB.listarTodasContas();
-
-            while (resultSet.next()){
-                Integer numeroConta = resultSet.getInt(1);
-                BigDecimal saldo = resultSet.getBigDecimal(2);
-                String cpf = resultSet.getString(3);
-
-                Cliente cliente = new Cliente(cpf);
-                ContaDTO contaDTO = new ContaDTO(numeroConta, cliente);
-                Conta conta = new Conta(contaDTO);
-                conta.depositar(saldo);
-
-                this.contas.add(conta);
-            }
-
-            resultSet.close();
-        } catch (SQLException e){
-            throw new RuntimeException(e);
-        }
     }
 
     public BigDecimal consultarSaldo(Integer numeroConta){
