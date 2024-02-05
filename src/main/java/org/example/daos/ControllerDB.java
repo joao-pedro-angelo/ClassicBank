@@ -32,9 +32,7 @@ public class ControllerDB {
             preparedStatement.setBigDecimal(2, BigDecimal.ZERO);
             preparedStatement.setString(3, cliente.getCpf());
 
-            preparedStatement.execute();
-            preparedStatement.close();
-            connection.close();
+            this.encerraConexoes(connection, preparedStatement);
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -60,9 +58,7 @@ public class ControllerDB {
 
                 contas.add(conta);
             }
-            resultSet.close();
-            preparedStatement.close();
-            connection.close();
+            this.encerraConexoes(connection, resultSet, preparedStatement);
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -90,11 +86,28 @@ public class ControllerDB {
                 Cliente cliente = new Cliente(cpf);
                 conta = new Conta(numeroConta, saldo, cliente);
             }
-            resultSet.close();
-            preparedStatement.close();
-            connection.close();
+            this.encerraConexoes(connection, resultSet, preparedStatement);
         } catch (SQLException e){
             throw new RuntimeException(e);
         } return conta;
+    }
+
+    private void encerraConexoes(Connection connection, PreparedStatement preparedStatement){
+        try{
+            connection.close();
+            preparedStatement.close();
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void encerraConexoes(Connection connection, ResultSet resultSet, PreparedStatement preparedStatement){
+        try{
+            connection.close();
+            resultSet.close();
+            preparedStatement.close();
+        } catch(SQLException e){
+            throw new RuntimeException(e);
+        }
     }
 }
