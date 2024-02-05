@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.entities.cliente.Cliente;
 import org.example.exception.RegraDeNegocioException;
 import org.example.services.ContaService;
 

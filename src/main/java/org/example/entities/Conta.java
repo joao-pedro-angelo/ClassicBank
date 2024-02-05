@@ -1,6 +1,4 @@
-package org.example.entities.conta;
-
-import org.example.entities.cliente.Cliente;
+package org.example.entities;
 
 import java.math.BigDecimal;
 import java.util.Objects;
