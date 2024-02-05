@@ -1,4 +1,4 @@
-package org.example.DataBase;
+package org.example.daos;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
