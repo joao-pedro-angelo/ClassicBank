@@ -31,6 +31,7 @@ public class ControllerDB {
 
             preparedStatement.execute();
             preparedStatement.close();
+            connection.close();
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -41,7 +42,11 @@ public class ControllerDB {
         Connection connection = this.conexaoDB.recuperaConexao();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            return preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
+            preparedStatement.close();
+            connection.close();
+
+            return resultSet;
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
