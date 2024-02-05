@@ -1,7 +1,6 @@
 package org.example;
 
 import org.example.entities.cliente.Cliente;
-import org.example.entities.conta.ContaDTO;
 import org.example.exception.RegraDeNegocioException;
 import org.example.services.ContaService;
 
@@ -83,7 +82,7 @@ public class Main {
         System.out.println("Digite o CPF do cliente: ");
         String cpfTitular = sc.nextLine();
 
-        contaService.abrir(new ContaDTO(numeroConta, new Cliente(cpfTitular)));
+        contaService.abrir(numeroConta, cpfTitular);
 
         System.out.println("Conta aberta com sucesso!");
         System.out.println("Tecle enter para voltar ao menu principal.");

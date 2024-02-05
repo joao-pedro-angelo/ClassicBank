@@ -11,16 +11,14 @@ public class Conta {
     private BigDecimal saldo;
     private Cliente cliente;
 
-    public Conta(ContaDTO contaDTO){
-        this.numeroConta = contaDTO.numeroConta();
-        this.cliente = contaDTO.cliente();
-        this.saldo = BigDecimal.ZERO;
+    public Conta(Integer numeroConta, BigDecimal saldo, Cliente cliente){
+        this.numeroConta = numeroConta;
+        this.saldo = saldo;
+        this.cliente = cliente;
     }
 
-    public Conta(ContaDTO contaDTO, BigDecimal saldo){
-        this.numeroConta = contaDTO.numeroConta();
-        this.cliente = contaDTO.cliente();
-        this.saldo = saldo;
+    public Conta(Integer numeroConta, Cliente cliente){
+        this(numeroConta, BigDecimal.ZERO, cliente);
     }
 
     public boolean possuiSaldo(){

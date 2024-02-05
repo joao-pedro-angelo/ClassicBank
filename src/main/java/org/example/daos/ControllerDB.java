@@ -2,7 +2,6 @@ package org.example.daos;
 
 import org.example.entities.cliente.Cliente;
 import org.example.entities.conta.Conta;
-import org.example.entities.conta.ContaDTO;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -57,8 +56,7 @@ public class ControllerDB {
                 String cpf = resultSet.getString(3);
 
                 Cliente cliente = new Cliente(cpf);
-                ContaDTO contaDTO = new ContaDTO(numeroConta, cliente);
-                Conta conta = new Conta(contaDTO, saldo);
+                Conta conta = new Conta(numeroConta, saldo, cliente);
 
                 contas.add(conta);
             }

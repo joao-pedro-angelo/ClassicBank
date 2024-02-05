@@ -1,8 +1,8 @@
 package org.example.services;
 
 import org.example.daos.ControllerDB;
+import org.example.entities.cliente.Cliente;
 import org.example.entities.conta.Conta;
-import org.example.entities.conta.ContaDTO;
 import org.example.exception.RegraDeNegocioException;
 
 import java.math.BigDecimal;
@@ -33,8 +33,8 @@ public class ContaService {
         return conta.getSaldo();
     }
 
-    public void abrir(ContaDTO contaDTO){
-        this.controllerDB.abrirConta(contaDTO.numeroConta(), contaDTO.cliente());
+    public void abrir(Integer numeroConta, String cpfCliente){
+        this.controllerDB.abrirConta(numeroConta, new Cliente(cpfCliente));
     }
 
     public void realizarSaque(Integer numeroDaConta, BigDecimal valor){
