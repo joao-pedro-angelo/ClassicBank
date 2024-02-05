@@ -11,9 +11,9 @@ public class Conta {
     private BigDecimal saldo;
     private Cliente cliente;
 
-    public Conta(ContaDTO contaDTO, Cliente cliente){
+    public Conta(ContaDTO contaDTO){
         this.numeroConta = contaDTO.numeroConta();
-        this.cliente = cliente;
+        this.cliente = contaDTO.cliente();
         this.saldo = BigDecimal.ZERO;
     }
 
@@ -48,7 +48,7 @@ public class Conta {
                 "numero='" + numeroConta + '\'' +
                 ", saldo=" + saldo +
                 ", titular=" + cliente +
-                '}';
+                '}' + "\n";
     }
 
     public Integer getNumero() {

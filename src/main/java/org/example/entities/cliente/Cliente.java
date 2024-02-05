@@ -5,8 +5,8 @@ import java.util.Objects;
 public class Cliente {
     private String cpf;
 
-    public Cliente(ClienteDTO clienteDTO){
-        this.cpf = clienteDTO.cpf();
+    public Cliente(String cpf){
+        this.cpf = cpf;
     }
 
     @Override
