@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args){
         int opcao = exibirMenu();
-        while (opcao != 7){
+        while (opcao != 8){
             try{
                 switch (opcao) {
                     case 1:
@@ -35,6 +35,9 @@ public class Main {
                     case 6:
                         realizarDeposito();
                         break;
+                    case 7:
+                        consultarContaPorNumero();
+                        break;
                 }
             } catch (RegraDeNegocioException e){
                 System.out.println("Erro: " + e.getMessage());
@@ -54,7 +57,8 @@ public class Main {
                 4 - Consultar saldo de uma conta
                 5 - Realizar saque em uma conta
                 6 - Realizar depósito em uma conta
-                7 - Sair
+                7 - Consultar conta por número
+                8 - Sair
                 """);
 
         try{
@@ -147,5 +151,14 @@ public class Main {
         sc.nextLine();
     }
 
+    private static void consultarContaPorNumero(){
+        System.out.println("Digite o número da conta:");
+        Integer numeroDaConta = Integer.parseInt(sc.nextLine());
 
+        System.out.println(contaService.listaContaPorNumero(numeroDaConta).toString());
+
+        System.out.println("\n" + "Tecle enter para voltar ao menu principal");
+
+        sc.nextLine();
+    }
 }

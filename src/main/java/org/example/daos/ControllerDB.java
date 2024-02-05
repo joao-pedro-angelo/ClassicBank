@@ -70,4 +70,31 @@ public class ControllerDB {
         return contas;
     }
 
+    public Conta listaContaPorNumero(Integer numeroConta){
+        String sql = "SELECT * FROM conta WHERE numeroConta = ?";
+        Connection connection = this.conexaoDB.recuperaConexao();
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        Conta conta = null;
+
+        try{
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, numeroConta);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                Integer numeroRecuperado = resultSet.getInt(1);
+                BigDecimal saldo = resultSet.getBigDecimal(2);
+                String cpf = resultSet.getString(3);
+
+                Cliente cliente = new Cliente(cpf);
+                conta = new Conta(numeroConta, saldo, cliente);
+            }
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        } return conta;
+    }
 }

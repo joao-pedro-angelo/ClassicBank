@@ -28,6 +28,10 @@ public class ContaService {
         return result.toString();
     }
 
+    public Conta listaContaPorNumero(Integer numeroConta){
+        return this.controllerDB.listaContaPorNumero(numeroConta);
+    }
+
     public BigDecimal consultarSaldo(Integer numeroConta){
         Conta conta = buscarContaPorNumero(numeroConta);
         return conta.getSaldo();
