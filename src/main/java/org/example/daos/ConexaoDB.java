@@ -7,8 +7,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Classe responsável pela conexão com o banco de dados
+ *
+ * @author carneiro.angelo.joao.pedro@gmail.com
+ */
 public class ConexaoDB {
 
+    /**
+     * Método que realiza a conexão com o banco de dados
+     * @return A conexão com banco de dados
+     */
     public Connection recuperaConexao(){
         try{
             String password = "senha-de-root";
@@ -20,7 +29,7 @@ public class ConexaoDB {
         }
     }
 
-    /*
+    /**
         Pool de Conexões
 
         Sem este pool, é inviável que dois ou mais usuários acessem o sistema ao mesmo tempo.
