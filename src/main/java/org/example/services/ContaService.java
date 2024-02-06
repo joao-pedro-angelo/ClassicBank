@@ -47,11 +47,17 @@ public class ContaService {
     }
 
     public void realizarSaque(Integer numeroDaConta, BigDecimal valor){
+        Conta conta = this.listaContaPorNumero(numeroDaConta);
+        BigDecimal valorAtual = conta.getSaldo();
+        if (valor.compareTo(valorAtual) > 0) throw new RegraDeNegocioException("Saldo insuficiente.");
 
+        this.controllerDB.alteraSaldo(numeroDaConta, valor);
     }
 
     public void realizarDeposito(Integer numeroDaConta, BigDecimal valor) {
+        Conta conta = this.listaContaPorNumero(numeroDaConta);
 
+        this.controllerDB.alteraSaldo(numeroDaConta, valor);
     }
 
     public void encerrar(Integer numeroDaConta) {

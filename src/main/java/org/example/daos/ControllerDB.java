@@ -92,6 +92,22 @@ public class ControllerDB {
         } return conta;
     }
 
+    public void alteraSaldo(Integer numeroConta, BigDecimal saldo){
+        String sqlQuery = "UPDATE conta SET saldo = ? WHERE numeroConta = ?";
+        Connection connection = this.conexaoDB.recuperaConexao();
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+            preparedStatement.setBigDecimal(1, saldo);
+            preparedStatement.setInt(2, numeroConta);
+            preparedStatement.execute();
+
+            this.encerraConexoes(connection, preparedStatement);
+        } catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     private void encerraConexoes(Connection connection, PreparedStatement preparedStatement){
         try{
             connection.close();
