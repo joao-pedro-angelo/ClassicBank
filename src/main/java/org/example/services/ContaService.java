@@ -61,6 +61,8 @@ public class ContaService {
     }
 
     public void encerrar(Integer numeroDaConta) {
+        this.listaContaPorNumero(numeroDaConta);
 
+        this.controllerDB.removeConta(numeroDaConta);
     }
 }

@@ -108,6 +108,21 @@ public class ControllerDB {
         }
     }
 
+    public void removeConta(Integer numeroConta){
+        String sqlQuery = "DELETE FROM conta WHERE numeroConta = ?";
+        Connection connection = this.conexaoDB.recuperaConexao();
+
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+            preparedStatement.setInt(1, numeroConta);
+            preparedStatement.execute();
+
+            this.encerraConexoes(connection, preparedStatement);
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     private void encerraConexoes(Connection connection, PreparedStatement preparedStatement){
         try{
             connection.close();
