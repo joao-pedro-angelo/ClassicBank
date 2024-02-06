@@ -29,3 +29,4 @@ Antes de executar o projeto, certifique-se de realizar a seguinte etapa:
 
 1. [Sobre o Factory Pattern](/teoria/SobrePadrãoFactory.md)
 2. [Comandos do MySQL Server no Terminal Linux](/teoria/MysqlServer-TerminalLinux.md)
+3. [Pacote que contém as classes que interagem com o DB](https://github.com/joao-pedro-angelo/ClassicBank/tree/master/src/main/java/org/example/daos)
