@@ -30,7 +30,7 @@ public class ControllerDB {
 
             preparedStatement.setInt(1, numeroConta);
             preparedStatement.setBigDecimal(2, BigDecimal.ZERO);
-            preparedStatement.setString(3, cliente.getCpf());
+            preparedStatement.setString(3, cliente.cpf());
 
             this.encerraConexoes(connection, preparedStatement);
         } catch (SQLException e){
