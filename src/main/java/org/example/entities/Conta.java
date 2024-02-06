@@ -3,11 +3,19 @@ package org.example.entities;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+/**
+ * Classe que representa uma Conta.
+ * Uma conta pode ser criada por um cliente do ClassicBank.
+ * A conta contém o número da mesma (que a identifica e é único). Contém o saldo e o cliente
+ * que a criou.
+ *
+ * @author carneiro.angelo.joao.pedro@gmail.com
+ */
 public class Conta {
 
-    private Integer numeroConta;
+    private final Integer numeroConta;
     private BigDecimal saldo;
-    private Cliente cliente;
+    private final Cliente cliente;
 
     public Conta(Integer numeroConta, BigDecimal saldo, Cliente cliente){
         this.numeroConta = numeroConta;
@@ -19,18 +27,21 @@ public class Conta {
         this(numeroConta, BigDecimal.ZERO, cliente);
     }
 
+
+    /**
+     * Verifica se a conta possuiSaldo.
+     * @return true - se o saldo for diferente de 0. false, caso contrário.
+     */
     public boolean possuiSaldo(){
         return this.saldo.compareTo(BigDecimal.ZERO) != 0;
     }
 
-    public void sacar(BigDecimal valor){
-        this.saldo = this.saldo.subtract(valor);
-    }
 
-    public void depositar(BigDecimal valor){
-        this.saldo = this.saldo.add(valor);
-    }
-
+    /**
+     * Método que compara duas contas. O número da conta é o identificador.
+     * @param o A outra conta que está sendo comparada
+     * @return true - se são a mesma conta. false - caso contrário.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,11 +50,21 @@ public class Conta {
         return numeroConta.equals(conta.numeroConta);
     }
 
+
+    /**
+     * A representação de uma conta utiliza o atributo "numeroConta" como ID único
+     * @return O valor que identifica esta conta.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(numeroConta);
     }
 
+
+    /**
+     * Representação textual de uma conta.
+     * @return Representação textual de uma conta.
+     */
     @Override
     public String toString() {
         return "Conta{" +
@@ -53,6 +74,8 @@ public class Conta {
                 '}' + "\n";
     }
 
+
+    // Métodos acessadores
     public Integer getNumero() {
         return numeroConta;
     }
