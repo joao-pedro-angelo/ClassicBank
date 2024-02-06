@@ -20,7 +20,7 @@ public class Main {
 
     /**
      * Método main - ponto de partida de uma aplicação Java
-     *
+     * <p>
      * Realiza o controle de seleção de método.
      * Os métodos invocados podem lançar a exceção RegraDeNegocioException(), que é capturada
      * por este método.
@@ -65,7 +65,7 @@ public class Main {
 
     /**
      * Exibe o menu e retorna a escolha do usuário (um inteiro).
-     *
+     * <p>
      * Caso o usuário digite algo que não seja um número inteiro, a exceção será capturada
      * e o retorno será 8, que encerra a aplicação.
      *
@@ -109,7 +109,7 @@ public class Main {
     /**
      * Captura as informações necessárias para a criação de uma conta.
      * Passa essas informações para outro método que é quem irá abrir a conta.
-     *
+     * <p>
      * As informações serão checadas em outros métodos.
      */
     private static void abrirConta(){
