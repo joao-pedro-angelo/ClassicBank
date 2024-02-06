@@ -54,9 +54,9 @@ Siga os passos abaixo:
 ```shell
 mysql -u root -p
 
-create database classic-bank;
+create database classic_bank;
 
-use classic-bank
+use classic_bank
 ```
 
 A base de dados foi criada, agora vamos

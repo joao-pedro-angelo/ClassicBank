@@ -18,7 +18,7 @@ mysql -u root -p
 
 ```shell
 # use <nomeDaBase de Dados>
-use classic-bank
+use classic_bank
 ```
 
 
