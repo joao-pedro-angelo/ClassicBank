@@ -55,7 +55,7 @@ public class ContaService {
     }
 
     public void realizarDeposito(Integer numeroDaConta, BigDecimal valor) {
-        Conta conta = this.listaContaPorNumero(numeroDaConta);
+        this.listaContaPorNumero(numeroDaConta);
 
         this.controllerDB.alteraSaldo(numeroDaConta, valor);
     }
