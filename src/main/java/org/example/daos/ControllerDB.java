@@ -40,7 +40,7 @@ public class ControllerDB {
      * @param cliente o cliente associado à conta
      */
     public void abrirConta(Integer numeroConta, Cliente cliente){
-        String sqlQuery = "INSERT INTO conta (numeroConta, saldo, cpf) " +
+        String sqlQuery = "INSERT INTO conta (numeroConta, saldo, cpf)" +
                 "VALUES (?, ?, ?)";
 
         Connection connection = this.conexaoDB.recuperaConexao();
@@ -51,6 +51,7 @@ public class ControllerDB {
             preparedStatement.setInt(1, numeroConta);
             preparedStatement.setBigDecimal(2, BigDecimal.ZERO);
             preparedStatement.setString(3, cliente.cpf());
+            preparedStatement.execute();
 
             this.encerraConexoes(connection, preparedStatement);
         } catch (SQLException e){

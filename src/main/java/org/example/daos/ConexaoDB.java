@@ -10,7 +10,7 @@ import java.sql.SQLException;
 /**
  * Classe responsável pela conexão com o banco de dados
  *
- * @author carneiro.angelo.joao.pedro@gmail.com
+ * @author carneiroangelojoaopedro@gmail.com
  */
 public class ConexaoDB {
 
@@ -21,9 +21,9 @@ public class ConexaoDB {
     public Connection recuperaConexao(){
         try{
             String password = "senha-de-root";
-
+            String nameDB = "classic_bank";
             return DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/byte_bank?user=root&password=" + password);
+                    .getConnection("jdbc:mysql://localhost:3306/" + nameDB + "?user=root&password=" + password);
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -40,7 +40,7 @@ public class ConexaoDB {
      */
     public HikariDataSource createDataSource(){
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/byte_bank");
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/classic_bank");
         config.setUsername("root");
         config.setPassword("senha-de-root");
         config.setMaximumPoolSize(10);
