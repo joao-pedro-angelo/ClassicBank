@@ -35,23 +35,23 @@ Antes de executar o projeto, certifique-se de realizar a seguinte etapa:
 Neste sistema, a API JDBC foi utilizada para realizar operações de CRUD (Create, Read, Update, Delete) no banco de dados MySQL Server. Abaixo estão alguns trechos de código da classe `ControllerDB` que ilustram como a JDBC foi utilizada:
 
 ```java
-// Método para abrir uma nova conta no banco de dados
-public void abrirConta(Integer numeroConta, Cliente cliente){
-    String sqlQuery = "INSERT INTO conta (numeroConta, saldo, cpf) " +
-            "VALUES (?, ?, ?)";
+    public void abrirConta(Conta conta){
+        String sqlQuery = "INSERT INTO conta (numeroConta, saldo, cpf)" +
+                "VALUES (?, ?, ?)";
 
-    Connection connection = this.conexaoDB.recuperaConexao();
+        Connection connection = this.conexaoDB.recuperaConexao();
 
-    try{
-        PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
 
-        preparedStatement.setInt(1, numeroConta);
-        preparedStatement.setBigDecimal(2, BigDecimal.ZERO);
-        preparedStatement.setString(3, cliente.cpf());
+            preparedStatement.setInt(1, conta.numeroConta());
+            preparedStatement.setBigDecimal(2, BigDecimal.ZERO);
+            preparedStatement.setString(3, conta.cliente().cpf());
+            preparedStatement.execute();
 
-        this.encerraConexoes(connection, preparedStatement);
-    } catch (SQLException e){
-        throw new RuntimeException(e);
+            this.encerraConexoes(connection, preparedStatement);
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
     }
-}
 ```
