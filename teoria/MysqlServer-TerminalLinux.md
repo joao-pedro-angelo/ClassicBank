@@ -17,8 +17,16 @@ mysql -u root -p
 ### Determinando qual base de dados usar:
 
 ```shell
-# use <nomeDaBase de Dados>
+# use <nomeDaBaseDeDados>
 use classic_bank
+```
+
+
+---
+### Excluir database
+
+```shell
+# DROP database <nomeDaBaseDeDados>;
 ```
 
 
