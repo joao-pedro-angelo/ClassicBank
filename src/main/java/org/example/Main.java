@@ -173,7 +173,7 @@ public class Main {
         Integer numeroDaConta = Integer.parseInt(sc.nextLine());
 
         System.out.println("Digite o valor do saque:");
-        BigDecimal valor = sc.nextBigDecimal();
+        BigDecimal valor = BigDecimal.valueOf(Integer.parseInt(sc.nextLine()));
 
         contaService.realizarSaque(numeroDaConta, valor);
 
