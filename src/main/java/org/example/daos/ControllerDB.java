@@ -36,10 +36,9 @@ public class ControllerDB {
     /**
      * Abre uma nova conta no banco de dados.
      *
-     * @param numeroConta o número da conta a ser aberta
-     * @param cliente o cliente associado à conta
+     * @param conta  nova conta
      */
-    public void abrirConta(Integer numeroConta, Cliente cliente){
+    public void abrirConta(Conta conta){
         String sqlQuery = "INSERT INTO conta (numeroConta, saldo, cpf)" +
                 "VALUES (?, ?, ?)";
 
@@ -48,9 +47,9 @@ public class ControllerDB {
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
 
-            preparedStatement.setInt(1, numeroConta);
+            preparedStatement.setInt(1, conta.numeroConta());
             preparedStatement.setBigDecimal(2, BigDecimal.ZERO);
-            preparedStatement.setString(3, cliente.cpf());
+            preparedStatement.setString(3, conta.cliente().cpf());
             preparedStatement.execute();
 
             this.encerraConexoes(connection, preparedStatement);
@@ -127,17 +126,17 @@ public class ControllerDB {
     /**
      * Altera o saldo de uma conta no banco de dados com base no número da conta fornecido.
      *
-     * @param numeroConta o número da conta cujo saldo será alterado
+     * @param conta conta cujo saldo será alterado
      * @param saldo o novo saldo da conta
      */
-    public void alteraSaldo(Integer numeroConta, BigDecimal saldo){
+    public void alteraSaldo(Conta conta, BigDecimal saldo){
         String sqlQuery = "UPDATE conta SET saldo = ? WHERE numeroConta = ?";
         Connection connection = this.conexaoDB.recuperaConexao();
 
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
             preparedStatement.setBigDecimal(1, saldo);
-            preparedStatement.setInt(2, numeroConta);
+            preparedStatement.setInt(2, conta.numeroConta());
             preparedStatement.execute();
 
             this.encerraConexoes(connection, preparedStatement);
@@ -149,15 +148,15 @@ public class ControllerDB {
     /**
      * Remove uma conta do banco de dados com base no número da conta fornecido.
      *
-     * @param numeroConta o número da conta a ser removida
+     * @param conta conta a ser removida
      */
-    public void removeConta(Integer numeroConta){
+    public void removeConta(Conta conta){
         String sqlQuery = "DELETE FROM conta WHERE numeroConta = ?";
         Connection connection = this.conexaoDB.recuperaConexao();
 
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-            preparedStatement.setInt(1, numeroConta);
+            preparedStatement.setInt(1, conta.numeroConta());
             preparedStatement.execute();
 
             this.encerraConexoes(connection, preparedStatement);

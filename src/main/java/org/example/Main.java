@@ -115,16 +115,19 @@ public class Main {
      */
     private static void abrirConta(){
         System.out.println("Digite o número da conta: ");
-        Integer numeroConta = Integer.parseInt(sc.nextLine());
+        try{
+            Integer numeroConta = Integer.parseInt(sc.nextLine());
 
-        System.out.println("Digite o CPF do cliente: ");
-        String cpfTitular = sc.nextLine();
+            System.out.println("Digite o CPF do cliente: ");
+            String cpfTitular = sc.nextLine();
 
-        contaService.abrir(numeroConta, cpfTitular);
+            contaService.abrir(numeroConta, cpfTitular);
 
-        System.out.println("Conta aberta com sucesso!");
+            System.out.println("Conta aberta com sucesso!");
+        } catch (NumberFormatException e){
+            System.out.println("Erro! Entrada inválida" );
+        }
         System.out.println("Tecle enter para voltar ao menu principal.");
-
         sc.nextLine();
     }
 
