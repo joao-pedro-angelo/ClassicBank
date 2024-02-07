@@ -11,6 +11,7 @@ import java.util.Scanner;
  * Entrada e saída de dados
  *
  * @author carneiroangelojoaopedro@gmail.com
+ *
  */
 public class Main {
 
