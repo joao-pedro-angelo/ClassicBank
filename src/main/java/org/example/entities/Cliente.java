@@ -4,7 +4,7 @@ package org.example.entities;
  * Record que representa uma pessoa física
  *
  * @param cpf Código de Pessoa Física - Identificador de uma pessoa
- * @author carneiro.angelo.joao.pedro@gmail.com
+ * @author carneiroangelojoaopedro@gmail.com
  */
 public record Cliente(String cpf) {
 

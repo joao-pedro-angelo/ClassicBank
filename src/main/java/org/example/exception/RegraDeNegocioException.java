@@ -5,7 +5,7 @@ package org.example.exception;
  * Deve ser lançada a exceção RegraDeNegocioException quando alguma lógica/regra do sistema
  * for quebrada
  *
- * @author carneiro.angelo.joao.pedro@gmail.com
+ * @author carneiroangelojoaopedro@gmail.com
  */
 public class RegraDeNegocioException extends RuntimeException {
 

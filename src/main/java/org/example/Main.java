@@ -10,7 +10,7 @@ import java.util.Scanner;
  * Classe que realiza a interação com o usuário
  * Entrada e saída de dados
  *
- * @author carneiro.angelo.joao.pedro@gmail.com
+ * @author carneiroangelojoaopedro@gmail.com
  */
 public class Main {
 

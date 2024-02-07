@@ -9,7 +9,7 @@ import java.util.Objects;
  * A conta contém o número da mesma (que a identifica e é único). Contém o saldo e o cliente
  * que a criou.
  *
- * @author carneiro.angelo.joao.pedro@gmail.com
+ * @author carneiroangelojoaopedro@gmail.com
  */
 public class Conta {
 
