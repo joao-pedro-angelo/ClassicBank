@@ -177,7 +177,7 @@ public class Main {
         Integer numeroDaConta = Integer.parseInt(sc.nextLine());
 
         System.out.println("Digite o valor do saque:");
-        BigDecimal valor = BigDecimal.valueOf(Integer.parseInt(sc.nextLine()));
+        BigDecimal valor = BigDecimal.valueOf(Double.parseDouble(sc.nextLine()));
 
         contaService.realizarSaque(numeroDaConta, valor);
 
@@ -198,7 +198,7 @@ public class Main {
         Integer numeroDaConta = Integer.parseInt(sc.nextLine());
 
         System.out.println("Digite o valor do depósito:");
-        BigDecimal valor = BigDecimal.valueOf(Integer.parseInt(sc.nextLine()));
+        BigDecimal valor = BigDecimal.valueOf(Double.parseDouble(sc.nextLine()));
 
         contaService.realizarDeposito(numeroDaConta, valor);
 
