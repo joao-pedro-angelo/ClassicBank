@@ -42,6 +42,10 @@ FLUSH PRIVILEGES;
 
 
 ---
+
+> A partir daqui, as configurações são específicas do projeto ClassicBank.<br>
+> Se você veio de outro projeto, esta parte não será útil.
+
 ## Configurar nossa tabela de dados
 
 Agora que já foi instalado o mysql server e a configuração da senha foi feita,
